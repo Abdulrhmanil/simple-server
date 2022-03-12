@@ -20,13 +20,26 @@ import java.util.Date;
 public class LogController {
     private final Log logger = LogFactory.getLog(LogController.class);
 
-    @GetMapping("/time")
-    public TimeResponse addLog() {
+    @GetMapping("/time/info")
+    public TimeResponse addInfoLog() {
         final String now = Date.from(Instant.now()).toString();
-        logger.info(String.format("Time requested at %s", now));
+        logger.info(String.format("Info time requested at %s", now));
         return new TimeResponse(now);
     }
 
+    @GetMapping("/time/error")
+    public TimeResponse addErrorLog() {
+        final String now = Date.from(Instant.now()).toString();
+        logger.error(String.format("Error time requested at %s", now));
+        return new TimeResponse(now);
+    }
+
+    @GetMapping("/time/warn")
+    public TimeResponse addWarnLog() {
+        final String now = Date.from(Instant.now()).toString();
+        logger.warn(String.format("Warn time requested at %s", now));
+        return new TimeResponse(now);
+    }
 
     @GetMapping("/log")
     public String getLogs() {
@@ -34,7 +47,6 @@ public class LogController {
             return FileUtils.readFileToString(new File("logs/out.log"), StandardCharsets.UTF_8);
         }
         catch (IOException e) {
-            e.printStackTrace();
             throw new InternalServerError("Fail to read log file, try to restart the server");
         }
     }
