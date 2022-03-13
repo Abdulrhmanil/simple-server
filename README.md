@@ -13,7 +13,7 @@ then use the command line:
 That's it, now you are running the application !
 
 
-### Reference Documentation
+# Reference Documentation
 The application have 2 endpoints :
 * [Add new log line - GET] - http://localhost:8080/api/time
 * [Get all logs - GET (protected)] - http://localhost:8080/api/log
