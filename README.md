@@ -1,17 +1,24 @@
-# Read Me First
-The following was discovered as part of building this project:
+# Requirements - Read Me First
+To run & execute the code, firstly you need download & install docker/docker-compose from:
+[docker link](https://docs.docker.com/get-docker/).
 
-* The original package name 'com.example.simple-server' is invalid and this project uses 'com.example.simpleserver' instead.
 
 # Getting Started
+To run the application through Docker Compose,
+firstly make sure you are in the application directory,
+then use the command line:
+
+`sudo docker-compose up`
+
+That's it, now you are running the application !
+
 
 ### Reference Documentation
-For further reference, please consider the following sections:
+The application have 2 endpoints :
+* [Add new log line - GET] - http://localhost:8080/api/time
+* [Get all logs - GET (protected)] - http://localhost:8080/api/log
+* The access key is `VjR8vu5p3QY5cvwP`
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 
-### Guides
-The following guides illustrate how to use some features concretely:
-
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-
+For further reference, you can read docs on swagger:
+* [Swagger](http://localhost:8080/swagger-ui.html)
