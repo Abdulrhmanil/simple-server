@@ -14,4 +14,4 @@ services:
     ports:
       - "8080:8080"
     environment:
-      ACCESS_KEY: 'VjR8vu5p3QY5cvwZ'
+      ACCESS_KEY: 'VjR8vu5p3QY5cvwP'
