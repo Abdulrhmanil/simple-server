@@ -23,6 +23,11 @@ import java.util.Date;
 public class LogController {
     private final Log logger = LogFactory.getLog(LogController.class);
 
+
+    /**
+     * Log current time then return current time.
+     * @return current time as string
+     */
     @Operation(summary = "Get and log current time, no authorization require")
     @GetMapping("/time")
     public TimeResponse addInfoLog() {
@@ -31,6 +36,12 @@ public class LogController {
         return new TimeResponse(now);
     }
 
+
+    /**
+     * Get all logs, protected with access key, it can change from docker-compose.yaml.
+     * @param authorization is the Authorization header, that we received in request.
+     * @return the logs.
+     */
     @Operation(summary = "Get All logs as a text, authorization is required")
     @GetMapping("/log")
     public String getLogs(@RequestHeader(value = "Authorization", required = false) String authorization) {
